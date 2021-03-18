@@ -1,0 +1,12 @@
+﻿@using AspProject_Entities.Models;
+@model IEnumerable<User>
+@{
+    ViewData["Title"] = "Users";
+}
+
+<h1>Index</h1>
+@foreach(var user in @Model.ToArray())
+{
+<h4>@user.FirstName @user.LastName</h4>
+}
+
