@@ -5,8 +5,12 @@
 }
 
 <h1>Index</h1>
-@foreach(var user in @Model.ToArray())
+@foreach (var user in @Model.ToArray())
 {
-<h4>@user.FirstName @user.LastName</h4>
+    <h4>@user.FirstName @user.LastName</h4>
+}
+
+@section Header {
+    <h1>MainPage</h1>
 }
 

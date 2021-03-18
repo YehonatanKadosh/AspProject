@@ -24,4 +24,8 @@
     <ProjectReference Include="..\AspProject_Services\AspProject_Services.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\Images\" />
+  </ItemGroup>
+
 </Project>

@@ -6,21 +6,20 @@
     <title>@ViewData["Title"] - AspProject</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link href="~/css/Magnifier.css" rel="stylesheet" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    <header class="border-bottom">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="User" asp-action="Index">UserLEMALA</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    @RenderSection("HeaderSection", required: false)
+                <div class="row">
+                    <div role="main" class="col-6 text-right">
+                        @RenderSection("Header", required: false)
+                    </div>
+                    <div class="col-3 zoom">
+                        <img src="~/Images/download.png" class="img-responsive rounded float-left h-auto w-25" />
+                    </div>
                 </div>
             </div>
-        </nav>
     </header>
     <div class="container">
         <div class="row pb-3">
@@ -31,7 +30,7 @@
                 <div>
                 @await Html.PartialAsync("UserLogIn")
                 </div>
-                <div class="col border-top border-bottom border-primary">
+                <div class="col border-top border-primary">
                 @await Html.PartialAsync("NavigationBar")
                 </div>
             </div>
