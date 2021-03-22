@@ -10,16 +10,18 @@
 </head>
 <body>
     <header class="border-bottom">
-            <div class="container">
-                <div class="row">
-                    <div role="main" class="col-6 text-right">
-                        @RenderSection("Header", required: false)
-                    </div>
-                    <div class="col-3 zoom">
+        <div class="container">
+            <div class="row">
+                <div role="main" class="col-6 text-right">
+                    @RenderSection("Header", required: false)
+                </div>
+                <div class="col-3 zoom">
+                    <a asp-controller="Master" asp-action="WelcomePage">
                         <img src="~/Images/download.png" class="img-responsive rounded float-left h-auto w-25" />
-                    </div>
+                    </a>
                 </div>
             </div>
+        </div>
     </header>
     <div class="container">
         <div class="row pb-3">
@@ -28,10 +30,10 @@
             </div>
             <div class="col-4">
                 <div>
-                @await Html.PartialAsync("UserLogIn")
+                    @await Html.PartialAsync("UserLogIn")
                 </div>
                 <div class="col border-top border-primary">
-                @await Html.PartialAsync("NavigationBar")
+                    @await Html.PartialAsync("NavigationBar")
                 </div>
             </div>
         </div>
@@ -39,6 +41,8 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>

@@ -1,4 +1,12 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
-
-// Write your JavaScript code.
+﻿(() => {
+    let H = new Date().getHours();
+    if (H >= 22 && H < 6) {
+        $("#ScedualedRespond").text("Night");
+    }
+    else if (H >= 6 && H < 12) {
+        $("#ScedualedRespond").text("Morning");
+    }
+    else {
+        $("#ScedualedRespond").text("Afternoon");
+    }
+})()

@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using AspProject_Entities.ModelsValidation;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace AspProject_Entities.Models
 {
@@ -17,16 +15,14 @@ namespace AspProject_Entities.Models
         [Required(ErrorMessage = "Required field")]
         [Column(TypeName = "varchar(50)")]
         public string LastName { get; set; }
-        [Required(ErrorMessage = "Required field")]
-        [Column(TypeName = "smalldatetime")]
+        [Required(ErrorMessage = "Required field"), Column(TypeName = "smalldatetime"), BirthDateValidation(ErrorMessage = "1900 > Birthdate > Today")]
         public DateTime BirthDate { get; set; }
-        [Required(ErrorMessage = "Required field")]
-        [Column(TypeName = "varchar(50)")]
+        [Required(ErrorMessage = "Required field"), EmailAddress(ErrorMessage = "Illegal Email Address"), Column(TypeName = "varchar(50)")]
         public string Email { get; set; }
         [Required(ErrorMessage = "Required field")]
         [Column(TypeName = "varchar(50)")]
         public string UserName { get; set; }
-        [Required(ErrorMessage = "Required field")]
+        [Required(ErrorMessage = "Required field"), MinLength(8, ErrorMessage = "Min. of 8 characters")]
         [Column(TypeName = "varchar(50)")]
         public string Password { get; set; }
     }
