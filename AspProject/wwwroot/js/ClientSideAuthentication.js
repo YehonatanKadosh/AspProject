@@ -45,14 +45,14 @@ $("#Username").on("change", async () => {
             $("#Username_messenger")
                 .removeClass("valid-feedback")
                 .addClass("invalid-feedback")
-                .text("Username already exists!")
+                .text("Username exists!")
                 .fadeIn();
         })
         .catch((Error) => {
             $("#Username_messenger")
                 .removeClass("invalid-feedback")
                 .addClass("valid-feedback")
-                .text("Username not used!")
+                .text("Valid username!")
                 .fadeIn();
         });
 });
