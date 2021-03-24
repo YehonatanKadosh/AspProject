@@ -21,9 +21,7 @@ namespace AspProject.Controllers
         {
             string user = _userService.Get_User_Details(username, password);
             if (user != null)
-            {
                 HttpContext.Response.Cookies.Append("AspProjectCookie", $"{username},{password}", new CookieOptions() { Expires = (DateTime.Now).AddDays(3) });
-            }
             return RedirectToAction("WelcomePage", "Master");
         }
         public IActionResult SignOut()
@@ -45,7 +43,7 @@ namespace AspProject.Controllers
             else
             {
                 _userService.AddUser(user);
-                HttpContext.Response.Cookies.Append("AspProjectCookie", $"{user.UserName},{user.Password}", new CookieOptions() { Expires = (DateTime.Now).AddDays(3) });
+                HttpContext.Response.Cookies.Append("AspProjectCookie", $"{user.UserName},{user.Password}", new CookieOptions() { Expires = DateTime.Now.AddDays(3) });
             }
             return RedirectToAction("WelcomePage", "Master");
         }

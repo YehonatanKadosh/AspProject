@@ -31,6 +31,9 @@ namespace AspProject_Services.Services
 
         public IEnumerable<User> GetAllUsers() => Context.Users;
 
+        public User GetUser(string username, string password)
+        => Context.Users.FirstOrDefault(user => user.UserName == username && user.Password == password);
+
         public string Get_User_Details(string username, string password)
         {
             User _user = Context.Users.FirstOrDefault(user => user.UserName == username);

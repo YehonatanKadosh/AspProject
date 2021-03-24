@@ -1,14 +1,15 @@
 ﻿@model string
 
-@if (@ViewData["User"] != null)
+@if (Context.Items.ContainsKey("User"))
 {
     <div class="p-3">
         <div class="h4 text-center">
             <div>
-                <span class="border-bottom border-4">Welcome @ViewData["User"]</span>
+                
+                <span class="border-bottom border-4">Welcome @Context.Items["User"]</span>
             </div>
             <div>
-                <span class="border-bottom border-4">Have a great </span><span class="border-bottom border-3" id="ScedualedRespond"></span>
+                <span class="border-bottom border-4">Have a great </span><span class="border-bottom border-4" id="ScedualedRespond"></span>
             </div>
         </div>
         <div class="text-center">

@@ -27,10 +27,12 @@
           "AspProject_DataBase": "1.0.0",
           "AspProject_Entities": "1.0.0",
           "AspProject_Services": "1.0.0",
+          "Microsoft.AspNet.WebHelpers": "3.2.7",
           "Microsoft.EntityFrameworkCore.Design": "5.0.4",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.4",
           "Microsoft.EntityFrameworkCore.Tools": "5.0.4",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.1.5",
+          "bootstrap": "4.6.0",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "3.1.0.0",
@@ -66,7 +68,6 @@
           "Microsoft.AspNetCore.Http.Connections": "3.1.0.0",
           "Microsoft.AspNetCore.Http": "3.1.0.0",
           "Microsoft.AspNetCore.Http.Extensions": "3.1.0.0",
-          "Microsoft.AspNetCore.Http.Features": "3.1.0.0",
           "Microsoft.AspNetCore.HttpOverrides": "3.1.0.0",
           "Microsoft.AspNetCore.HttpsPolicy": "3.1.0.0",
           "Microsoft.AspNetCore.Identity": "3.1.0.0",
@@ -196,7 +197,6 @@
           "System.IO.FileSystem.Watcher": "4.1.2.0",
           "System.IO.IsolatedStorage": "4.1.2.0",
           "System.IO.MemoryMappedFiles": "4.1.2.0",
-          "System.IO.Pipelines": "4.0.2.0",
           "System.IO.Pipes": "4.1.2.0",
           "System.IO.UnmanagedMemoryStream": "4.1.2.0",
           "System.Linq.Reference": "4.2.2.0",
@@ -309,6 +309,12 @@
           "AspProject.dll": {}
         }
       },
+      "bootstrap/4.6.0": {
+        "dependencies": {
+          "jQuery": "3.0.0",
+          "popper.js": "1.16.1"
+        }
+      },
       "Humanizer.Core/2.8.26": {
         "runtime": {
           "lib/netstandard2.0/Humanizer.dll": {
@@ -317,9 +323,106 @@
           }
         }
       },
+      "jQuery/3.0.0": {},
+      "Microsoft.AspNet.Razor/3.2.7": {
+        "runtime": {
+          "lib/net45/System.Web.Razor.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.61128.0"
+          }
+        },
+        "compile": {
+          "lib/net45/System.Web.Razor.dll": {}
+        }
+      },
+      "Microsoft.AspNet.WebHelpers/3.2.7": {
+        "dependencies": {
+          "Microsoft.AspNet.WebPages": "3.2.7",
+          "Microsoft.AspNet.WebPages.WebData": "3.2.7"
+        },
+        "runtime": {
+          "lib/net45/Microsoft.Web.Helpers.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.61128.0"
+          }
+        },
+        "compile": {
+          "lib/net45/Microsoft.Web.Helpers.dll": {}
+        }
+      },
+      "Microsoft.AspNet.WebPages/3.2.7": {
+        "dependencies": {
+          "Microsoft.AspNet.Razor": "3.2.7",
+          "Microsoft.Web.Infrastructure": "1.0.0"
+        },
+        "runtime": {
+          "lib/net45/System.Web.Helpers.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.61128.0"
+          },
+          "lib/net45/System.Web.WebPages.Deployment.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.61128.0"
+          },
+          "lib/net45/System.Web.WebPages.Razor.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.61128.0"
+          },
+          "lib/net45/System.Web.WebPages.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.61128.0"
+          }
+        },
+        "compile": {
+          "lib/net45/System.Web.Helpers.dll": {},
+          "lib/net45/System.Web.WebPages.Deployment.dll": {},
+          "lib/net45/System.Web.WebPages.Razor.dll": {},
+          "lib/net45/System.Web.WebPages.dll": {}
+        }
+      },
+      "Microsoft.AspNet.WebPages.Data/3.2.7": {
+        "runtime": {
+          "lib/net45/WebMatrix.Data.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.61128.0"
+          }
+        },
+        "compile": {
+          "lib/net45/WebMatrix.Data.dll": {}
+        }
+      },
+      "Microsoft.AspNet.WebPages.WebData/3.2.7": {
+        "dependencies": {
+          "Microsoft.AspNet.WebPages.Data": "3.2.7"
+        },
+        "runtime": {
+          "lib/net45/WebMatrix.WebData.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.61128.0"
+          }
+        },
+        "compile": {
+          "lib/net45/WebMatrix.WebData.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Html.Abstractions/2.2.0": {
         "dependencies": {
           "System.Text.Encodings.Web": "4.5.0"
+        }
+      },
+      "Microsoft.AspNetCore.Http.Features/5.0.4": {
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "5.0.0",
+          "System.IO.Pipelines": "5.0.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.421.11815"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.dll": {}
         }
       },
       "Microsoft.AspNetCore.Razor/2.2.0": {
@@ -1095,6 +1198,17 @@
           "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll": {}
         }
       },
+      "Microsoft.Web.Infrastructure/1.0.0": {
+        "runtime": {
+          "lib/net40/Microsoft.Web.Infrastructure.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.20105.407"
+          }
+        },
+        "compile": {
+          "lib/net40/Microsoft.Web.Infrastructure.dll": {}
+        }
+      },
       "Microsoft.Win32.Primitives/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "3.1.0",
@@ -1186,6 +1300,7 @@
           "lib/netstandard1.6/NuGet.Frameworks.dll": {}
         }
       },
+      "popper.js/1.16.1": {},
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
       "runtime.fedora.23-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
       "runtime.fedora.24-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
@@ -1622,6 +1737,17 @@
       "System.IO.FileSystem.Primitives/4.3.0": {
         "dependencies": {
           "System.Runtime": "4.3.0"
+        }
+      },
+      "System.IO.Pipelines/5.0.1": {
+        "runtime": {
+          "lib/netcoreapp3.0/System.IO.Pipelines.dll": {
+            "assemblyVersion": "5.0.0.1",
+            "fileVersion": "5.0.120.57516"
+          }
+        },
+        "compile": {
+          "ref/netcoreapp2.0/System.IO.Pipelines.dll": {}
         }
       },
       "System.Linq/4.3.0": {
@@ -2209,6 +2335,9 @@
         }
       },
       "AspProject_Entities/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Features": "5.0.4"
+        },
         "runtime": {
           "AspProject_Entities.dll": {}
         },
@@ -2435,12 +2564,6 @@
       "Microsoft.AspNetCore.Http.Extensions/3.1.0.0": {
         "compile": {
           "Microsoft.AspNetCore.Http.Extensions.dll": {}
-        },
-        "compileOnly": true
-      },
-      "Microsoft.AspNetCore.Http.Features/3.1.0.0": {
-        "compile": {
-          "Microsoft.AspNetCore.Http.Features.dll": {}
         },
         "compileOnly": true
       },
@@ -3218,12 +3341,6 @@
         },
         "compileOnly": true
       },
-      "System.IO.Pipelines/4.0.2.0": {
-        "compile": {
-          "System.IO.Pipelines.dll": {}
-        },
-        "compileOnly": true
-      },
       "System.IO.Pipes/4.1.2.0": {
         "compile": {
           "System.IO.Pipes.dll": {}
@@ -3856,6 +3973,13 @@
       "serviceable": false,
       "sha512": ""
     },
+    "bootstrap/4.6.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-nGsIRcbAcBybxBeoL5H6Uax8bb+nrT+tbx3/3n1yXCWq/s+fgEvdo0BAYIq1GmbBizA2KKShyFNiJaSanonIIQ==",
+      "path": "bootstrap/4.6.0",
+      "hashPath": "bootstrap.4.6.0.nupkg.sha512"
+    },
     "Humanizer.Core/2.8.26": {
       "type": "package",
       "serviceable": true,
@@ -3863,12 +3987,61 @@
       "path": "humanizer.core/2.8.26",
       "hashPath": "humanizer.core.2.8.26.nupkg.sha512"
     },
+    "jQuery/3.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xFfntV19HzCtKdJWOp/XT9PUY3SslokTDDLFJZdBug36j1XVhw1+vPQ/n7Gd5y+jdpesn5B1m1yn1qIUq57jlA==",
+      "path": "jquery/3.0.0",
+      "hashPath": "jquery.3.0.0.nupkg.sha512"
+    },
+    "Microsoft.AspNet.Razor/3.2.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-BpWEZ+Ys7g9VAkbAfpG5jr5A1fKcmadCCXv3fYfps5YfTVABJIGV4uc9yvmXKxsNsjL+BzDld2gs+xtgT2gg1g==",
+      "path": "microsoft.aspnet.razor/3.2.7",
+      "hashPath": "microsoft.aspnet.razor.3.2.7.nupkg.sha512"
+    },
+    "Microsoft.AspNet.WebHelpers/3.2.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-nHJFEnvCcTI/9aYZ0PJAd7l1J+XA9UMb8FCOYP/WN6sV3G20LD1ZdL/CS0AczBzPyr5H/h2ys9w1QtfGIgfcTA==",
+      "path": "microsoft.aspnet.webhelpers/3.2.7",
+      "hashPath": "microsoft.aspnet.webhelpers.3.2.7.nupkg.sha512"
+    },
+    "Microsoft.AspNet.WebPages/3.2.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-2jwZFB7PvY+tbdz0ZP4iEo7gMrJxkCQUzoGLh6swUc6ZXl6DoKyDslmGcC/j9PFmJXCRMVIqtRorlPSMU2DuRA==",
+      "path": "microsoft.aspnet.webpages/3.2.7",
+      "hashPath": "microsoft.aspnet.webpages.3.2.7.nupkg.sha512"
+    },
+    "Microsoft.AspNet.WebPages.Data/3.2.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-wRnglowAe94/SMZpwEYKfXLe6U0yYu4bxMOBPIZyBAH0WE8m8I3wU43p7ZTOCTfOLWHalJ3cvN73Y23BBZqPbg==",
+      "path": "microsoft.aspnet.webpages.data/3.2.7",
+      "hashPath": "microsoft.aspnet.webpages.data.3.2.7.nupkg.sha512"
+    },
+    "Microsoft.AspNet.WebPages.WebData/3.2.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-AxvuTZdF1Z216x0ErUw/84QNsf42PuSFr0V3tUAzm8v0tVdg2SYTgRRxF9TgTRfkG3RA1Om5dmlyS3x3/MYotQ==",
+      "path": "microsoft.aspnet.webpages.webdata/3.2.7",
+      "hashPath": "microsoft.aspnet.webpages.webdata.3.2.7.nupkg.sha512"
+    },
     "Microsoft.AspNetCore.Html.Abstractions/2.2.0": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-Y4rs5aMEXY8G7wJo5S3EEt6ltqyOTr/qOeZzfn+hw/fuQj5GppGckMY5psGLETo1U9hcT5MmAhaT5xtusM1b5g==",
       "path": "microsoft.aspnetcore.html.abstractions/2.2.0",
       "hashPath": "microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Http.Features/5.0.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-w4ffAN7/k9DvEGMvkA38iADqwqoEIiT7z4+KsdB6EUEZs7u/AAs46X0cEfoovYCPglw7EBXJO7MoafLdGw/2vQ==",
+      "path": "microsoft.aspnetcore.http.features/5.0.4",
+      "hashPath": "microsoft.aspnetcore.http.features.5.0.4.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Razor/2.2.0": {
       "type": "package",
@@ -4178,6 +4351,13 @@
       "path": "microsoft.visualstudio.web.codegenerators.mvc/3.1.5",
       "hashPath": "microsoft.visualstudio.web.codegenerators.mvc.3.1.5.nupkg.sha512"
     },
+    "Microsoft.Web.Infrastructure/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-FNmvLn5m2LTU/Rs2KWVo0SIIh9Ek+U0ojex7xeDaSHw/zgEP77A8vY5cVWgUtBGS8MJfDGNn8rpXJWEIQaPwTg==",
+      "path": "microsoft.web.infrastructure/1.0.0",
+      "hashPath": "microsoft.web.infrastructure.1.0.0.nupkg.sha512"
+    },
     "Microsoft.Win32.Primitives/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -4219,6 +4399,13 @@
       "sha512": "sha512-qbXaB76XYUVLocLBs8Z9TS/ERGK2wm797feO+0JEPFvT7o7MRadOR77mqaSD4J1k8G+DlZQyq+MlkCuxrkr3ag==",
       "path": "nuget.frameworks/4.7.0",
       "hashPath": "nuget.frameworks.4.7.0.nupkg.sha512"
+    },
+    "popper.js/1.16.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6GiVZho0vwBnId7pK7NLTjMGq4F0/VE65I08CCeKlarVoUt1w8SGTtJmhNo/0pK38EGUP/xbT4+OkWB8UTMPBw==",
+      "path": "popper.js/1.16.1",
+      "hashPath": "popper.js.1.16.1.nupkg.sha512"
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
       "type": "package",
@@ -4562,6 +4749,13 @@
       "sha512": "sha512-6QOb2XFLch7bEc4lIcJH49nJN2HV+OC3fHDgsLVsBVBk3Y4hFAnOBGzJ2lUu7CyDDFo9IBWkSsnbkT6IBwwiMw==",
       "path": "system.io.filesystem.primitives/4.3.0",
       "hashPath": "system.io.filesystem.primitives.4.3.0.nupkg.sha512"
+    },
+    "System.IO.Pipelines/5.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qEePWsaq9LoEEIqhbGe6D5J8c9IqQOUuTzzV6wn1POlfdLkJliZY3OlB0j0f17uMWlqZYjH7txj+2YbyrIA8Yg==",
+      "path": "system.io.pipelines/5.0.1",
+      "hashPath": "system.io.pipelines.5.0.1.nupkg.sha512"
     },
     "System.Linq/4.3.0": {
       "type": "package",
@@ -5141,11 +5335,6 @@
       "sha512": ""
     },
     "Microsoft.AspNetCore.Http.Extensions/3.1.0.0": {
-      "type": "referenceassembly",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Microsoft.AspNetCore.Http.Features/3.1.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
@@ -5791,11 +5980,6 @@
       "sha512": ""
     },
     "System.IO.MemoryMappedFiles/4.1.2.0": {
-      "type": "referenceassembly",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "System.IO.Pipelines/4.0.2.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""

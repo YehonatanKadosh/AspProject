@@ -1,3 +1,4 @@
+using AspProject.Middlewares;
 using AspProject_DataBase.Context;
 using AspProject_Services.Interfaces;
 using AspProject_Services.Services;
@@ -42,11 +43,14 @@ namespace AspProject
             {
                 app.UseExceptionHandler("/Home/Error");
             }
-            app.UseStaticFiles();
 
+            app.UseStaticFiles();
+            
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseMiddleware<Cookieware>();
 
             app.UseEndpoints(endpoints =>
             {

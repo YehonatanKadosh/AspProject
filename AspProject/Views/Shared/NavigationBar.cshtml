@@ -10,7 +10,13 @@
         <a class="nav-link btn btn-outline-primary" href="#">About us</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link btn btn-outline-primary" href="#">עגלת קניות</a>
+        <a class="nav-link btn btn-outline-primary" href="#">Shopping Cart</a>
     </li>
+    @if (Context.Items.ContainsKey("User"))
+    {
+        <li class="nav-item">
+            <a class="nav-link btn btn-outline-primary" asp-controller="Product" asp-action="New_Advert">Publish Advert</a>
+        </li>
+    }
 </ul>
 

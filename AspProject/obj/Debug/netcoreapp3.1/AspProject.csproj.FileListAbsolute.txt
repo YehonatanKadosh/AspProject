@@ -317,3 +317,16 @@ C:\Users\Jonathan\source\repos\AspProjectGit\AspProject\obj\Debug\netcoreapp3.1\
 C:\Users\Jonathan\source\repos\AspProjectGit\AspProject\obj\Debug\netcoreapp3.1\Razor\Views\User\SignUp.cshtml.g.cs
 C:\Users\Jonathan\source\repos\AspProjectGit\AspProject\obj\Debug\netcoreapp3.1\Razor\Views\Master\WelcomePage.cshtml.g.cs
 C:\Users\Jonathan\source\repos\AspProjectGit\AspProject\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\Jonathan\source\repos\AspProjectGit\AspProject\obj\Debug\netcoreapp3.1\Razor\Views\Product\New_Advert.cshtml.g.cs
+C:\Users\Jonathan\source\repos\AspProjectGit\AspProject\bin\Debug\netcoreapp3.1\System.Web.Razor.dll
+C:\Users\Jonathan\source\repos\AspProjectGit\AspProject\bin\Debug\netcoreapp3.1\Microsoft.Web.Helpers.dll
+C:\Users\Jonathan\source\repos\AspProjectGit\AspProject\bin\Debug\netcoreapp3.1\System.Web.Helpers.dll
+C:\Users\Jonathan\source\repos\AspProjectGit\AspProject\bin\Debug\netcoreapp3.1\System.Web.WebPages.Deployment.dll
+C:\Users\Jonathan\source\repos\AspProjectGit\AspProject\bin\Debug\netcoreapp3.1\System.Web.WebPages.Razor.dll
+C:\Users\Jonathan\source\repos\AspProjectGit\AspProject\bin\Debug\netcoreapp3.1\System.Web.WebPages.dll
+C:\Users\Jonathan\source\repos\AspProjectGit\AspProject\bin\Debug\netcoreapp3.1\WebMatrix.Data.dll
+C:\Users\Jonathan\source\repos\AspProjectGit\AspProject\bin\Debug\netcoreapp3.1\WebMatrix.WebData.dll
+C:\Users\Jonathan\source\repos\AspProjectGit\AspProject\bin\Debug\netcoreapp3.1\Microsoft.Web.Infrastructure.dll
+C:\Users\Jonathan\source\repos\AspProjectGit\AspProject\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Http.Features.dll
+C:\Users\Jonathan\source\repos\AspProjectGit\AspProject\bin\Debug\netcoreapp3.1\System.IO.Pipelines.dll
+C:\Users\Jonathan\source\repos\AspProjectGit\AspProject\bin\Debug\netcoreapp3.1\web.config

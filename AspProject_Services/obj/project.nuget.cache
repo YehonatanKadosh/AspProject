@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "RtvL5NPZ0taoyIdgeEXBIyJgNkgdFh50NYftYY5hc6LYBOVDiUlRlnzSJBKhJDlmQ6leUhNlulYa5nxc7Y6jSQ==",
+  "dgSpecHash": "UQHajKKngnih1DTvyNs5OHNbZLB13TnEwnQVmDTvXVwi/EY9XVj396DV3fRkEzKukfduKCRBZ1LhbR35erf2qg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Jonathan\\source\\repos\\AspProjectGit\\AspProject_Services\\AspProject_Services.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Jonathan\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
+    "C:\\Users\\Jonathan\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.4\\microsoft.aspnetcore.http.features.5.0.4.nupkg.sha512",
     "C:\\Users\\Jonathan\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",
     "C:\\Users\\Jonathan\\.nuget\\packages\\microsoft.aspnetcore.razor.language\\3.1.0\\microsoft.aspnetcore.razor.language.3.1.0.nupkg.sha512",
     "C:\\Users\\Jonathan\\.nuget\\packages\\microsoft.aspnetcore.razor.runtime\\2.2.0\\microsoft.aspnetcore.razor.runtime.2.2.0.nupkg.sha512",
@@ -102,6 +103,7 @@
     "C:\\Users\\Jonathan\\.nuget\\packages\\system.io.compression.zipfile\\4.3.0\\system.io.compression.zipfile.4.3.0.nupkg.sha512",
     "C:\\Users\\Jonathan\\.nuget\\packages\\system.io.filesystem\\4.3.0\\system.io.filesystem.4.3.0.nupkg.sha512",
     "C:\\Users\\Jonathan\\.nuget\\packages\\system.io.filesystem.primitives\\4.3.0\\system.io.filesystem.primitives.4.3.0.nupkg.sha512",
+    "C:\\Users\\Jonathan\\.nuget\\packages\\system.io.pipelines\\5.0.1\\system.io.pipelines.5.0.1.nupkg.sha512",
     "C:\\Users\\Jonathan\\.nuget\\packages\\system.linq\\4.3.0\\system.linq.4.3.0.nupkg.sha512",
     "C:\\Users\\Jonathan\\.nuget\\packages\\system.linq.expressions\\4.3.0\\system.linq.expressions.4.3.0.nupkg.sha512",
     "C:\\Users\\Jonathan\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",

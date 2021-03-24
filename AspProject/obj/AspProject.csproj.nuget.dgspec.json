@@ -50,6 +50,10 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "Microsoft.AspNet.WebHelpers": {
+              "target": "Package",
+              "version": "[3.2.7, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -69,6 +73,10 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[3.1.5, )"
+            },
+            "bootstrap": {
+              "target": "Package",
+              "version": "[4.6.0, )"
             }
           },
           "imports": [
@@ -208,6 +216,12 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[5.0.4, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
