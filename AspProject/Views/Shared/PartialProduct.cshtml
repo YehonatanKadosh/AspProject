@@ -1,0 +1,25 @@
+﻿@model Product
+<div class="text-center">
+    <div>
+        <h6>
+            @Model.Title
+        </h6>
+        @Model.Date.ToShortDateString()
+    </div>
+    <div class="d-flex">
+        <div class="col">
+            @if (Model.Picture1 != null)
+            {
+                <img src="data:image/png;base64,@Convert.ToBase64String(Model.Picture1)" class=" CustomeImage rounded img-fluid p-0" />
+            }
+            else if (Model.Picture2 != null)
+            {
+                <img src="data:image/png;base64,@Convert.ToBase64String(Model.Picture2)" class=" CustomeImage rounded img-fluid p-0" />
+            }
+            else if (Model.Picture3 != null)
+            {
+                <img src="data:image/png;base64,@Convert.ToBase64String(Model.Picture3)" class=" CustomeImage rounded img-fluid p-0" />
+            }
+        </div>
+    </div>
+</div>

@@ -330,3 +330,5 @@ C:\Users\Jonathan\source\repos\AspProjectGit\AspProject\bin\Debug\netcoreapp3.1\
 C:\Users\Jonathan\source\repos\AspProjectGit\AspProject\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Http.Features.dll
 C:\Users\Jonathan\source\repos\AspProjectGit\AspProject\bin\Debug\netcoreapp3.1\System.IO.Pipelines.dll
 C:\Users\Jonathan\source\repos\AspProjectGit\AspProject\bin\Debug\netcoreapp3.1\web.config
+C:\Users\Jonathan\source\repos\AspProjectGit\AspProject\obj\Debug\netcoreapp3.1\Razor\Views\Shared\PartialProduct.cshtml.g.cs
+C:\Users\Jonathan\source\repos\AspProjectGit\AspProject\obj\Debug\netcoreapp3.1\Razor\Views\Product\ProductDetails.cshtml.g.cs

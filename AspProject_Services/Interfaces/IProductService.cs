@@ -9,5 +9,7 @@ namespace AspProject_Services.Interfaces
     public interface IProductService
     {
         void AddProduct(Product product);
+        object GetAllAvailable();
+        Product getProductByID(int id);
     }
 }

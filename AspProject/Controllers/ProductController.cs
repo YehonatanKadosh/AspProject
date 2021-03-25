@@ -16,28 +16,20 @@ namespace AspProject.Controllers
     {
         private IProductService _productService;
         private IUserService _userService;
-        private IHostingEnvironment Environment;
 
-        public ProductController(IProductService productService, IUserService userService, IHostingEnvironment environment)
+        public ProductController(IProductService productService, IUserService userService)
         {
             _productService = productService;
             _userService = userService;
-            Environment = environment;
         }
-        public IActionResult New_Advert()
-        {
-            if (HttpContext.Request.Cookies["AspProjectCookie"] != null)
-            {
-                string[] UsernamePassword = HttpContext.Request.Cookies["AspProjectCookie"].Split(',');
-                ViewData["User"] = _userService.Get_User_Details(UsernamePassword[0], UsernamePassword[1]);
-            }
-            return View();
-        }
+        public IActionResult New_Advert() => View();
         [HttpPost]
         [RequestFormLimits(MultipartBodyLengthLimit = 104857600)]
         public IActionResult AddProduct(Product product, List<IFormFile> Images)
         {
-            for (int i = 0; i < 3; i++)
+            if (!ModelState.IsValid)
+                return View("New_Advert", product);
+            for (int i = 0; i < Images.Count; i++)
             {
                 if (Images[i].Length > 0)
                 {
@@ -64,7 +56,16 @@ namespace AspProject.Controllers
             product.Owner = product.User = _userService.GetUser(UsernamePassword[0], UsernamePassword[1]);
             product.LastModified = product.Date = DateTime.Now;
             _productService.AddProduct(product);
+            return RedirectToAction("WelcomePage", "Master");
+        }
+       
+        public IActionResult addToCart(int id)
+        {
             return View();
+        }
+        public IActionResult ProductDetails(int id)
+        {
+            return View(_productService.getProductByID(id));
         }
     }
 }

@@ -9,15 +9,18 @@ namespace AspProject.Controllers
 {
     public class MasterController : Controller
     {
-        public IUserService Userservice { get; }
+        private IProductService ProductService;
+
+        private IUserService Userservice;
            
-        public MasterController(IUserService userservice)
+        public MasterController(IUserService userService, IProductService productService)
         {
-            Userservice = userservice;
+            Userservice = userService;
+            ProductService = productService;
         }
         public IActionResult WelcomePage()
         {
-            return View();
+            return View(ProductService.GetAllAvailable());
         }
     }
 }

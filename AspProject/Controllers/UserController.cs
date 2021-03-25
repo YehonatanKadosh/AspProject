@@ -17,11 +17,11 @@ namespace AspProject.Controllers
         {
             return View();
         }
-        public IActionResult SignIn(string username, string password)
+        public IActionResult SignIn(SignInModel signInModel)
         {
-            string user = _userService.Get_User_Details(username, password);
+            string user = _userService.Get_User_Details(signInModel.Username, signInModel.Password);
             if (user != null)
-                HttpContext.Response.Cookies.Append("AspProjectCookie", $"{username},{password}", new CookieOptions() { Expires = (DateTime.Now).AddDays(3) });
+                HttpContext.Response.Cookies.Append("AspProjectCookie", $"{signInModel.Username},{signInModel.Password}", new CookieOptions() { Expires = (DateTime.Now).AddDays(3) });
             return RedirectToAction("WelcomePage", "Master");
         }
         public IActionResult SignOut()

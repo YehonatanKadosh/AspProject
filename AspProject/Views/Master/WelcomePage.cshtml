@@ -1,6 +1,20 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using AspProject_Entities.Models
+@model List<Product>
 @section Header{
     <h1>WelcomePage</h1>
+}
+<link rel="stylesheet" href="~/css/site.css" />
+@foreach (Product product in Model)
+{
+<div class="partialViewWrapper d-inline-block text-center rounded border">
+    <div class="align-top h-75 overflow-hidden">
+        @await Html.PartialAsync("PartialProduct", product)
+    </div>
+    <a asp-controller="Product" asp-action="addToCart" asp-route-id="@product.Id" class="align-bottom">
+        AddToCart
+    </a><br />
+    <a asp-controller="Product" asp-action="ProductDetails" asp-route-id="@product.Id" class="align-bottom">
+        More details
+    </a>
+</div>
 }

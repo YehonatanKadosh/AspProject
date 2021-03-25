@@ -1,0 +1,41 @@
+﻿@model Product
+@section Header{<h1>Product details</h1>}
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                @if (Model.Picture1 != null)
+                {
+                    <img src="data:image/png;base64,@Convert.ToBase64String(Model.Picture1)" class=" CustomeImage rounded img-fluid p-0" />
+                }
+                @if (Model.Picture2 != null)
+                {
+                    <img src="data:image/png;base64,@Convert.ToBase64String(Model.Picture2)" class=" CustomeImage rounded img-fluid p-0" />
+                }
+                @if (Model.Picture3 != null)
+                {
+                    <img src="data:image/png;base64,@Convert.ToBase64String(Model.Picture3)" class=" CustomeImage rounded img-fluid p-0" />
+                }
+            </div>
+            <div class="col-7">
+                <div class="h-25">
+                    <h1>@Model.Title</h1>
+                    <h6>@Model.Date</h6>
+                </div>
+                <div class="h-50">
+                    Short description:
+                    <p class="border rounded overflow-auto h-25">@Model.ShortDescription</p>
+                    Long description:
+                    <p class="border rounded overflow-auto h-25">@Model.LongDescription</p>
+                </div>
+                <div class="h-25">
+                    <a asp-controller="Product" asp-action="addToCart" asp-route-id="@Model.Id">AddToCart</a>
+                    <a asp-controller="Master" asp-action="WelcomePage">Back</a>
+                    <h6>
+                        @Model.Owner.FirstName @Model.Owner.LastName<br />
+                        Born: @Model.Owner.BirthDate.ToShortDateString()<br />
+                        Email: @Model.Owner.Email
+                    </h6>
+                </div>
+            </div>
+        </div>
+    </div>
