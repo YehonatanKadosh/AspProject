@@ -11,10 +11,7 @@ namespace AspProject.Controllers
     {
         private IProductService ProductService;
 
-        public MasterController(IProductService productService)
-        {
-            ProductService = productService;
-        }
+        public MasterController(IProductService productService) => ProductService = productService;
         public IActionResult WelcomePage()
         {
             if (HttpContext.Request.Cookies.ContainsKey("AspProjectGuestCart"))
@@ -27,5 +24,6 @@ namespace AspProject.Controllers
 
             return View(ProductService.GetAllAvailableProducts());
         }
+        public IActionResult AboutUs() => View();
     }
 }
