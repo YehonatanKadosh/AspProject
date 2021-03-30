@@ -6,7 +6,7 @@
     @if (Context.Items.ContainsKey("User"))
     {
         <li class="nav-item">
-            <a class="nav-link btn btn-outline-primary" href="#">Account</a>
+            <a class="nav-link btn btn-outline-primary" asp-controller="User" asp-action="EditUser">Account</a>
         </li>
     }
     <li class="nav-item">

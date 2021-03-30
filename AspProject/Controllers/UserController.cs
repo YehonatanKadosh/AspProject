@@ -71,5 +71,18 @@ namespace AspProject.Controllers
             }
             return RedirectToAction("WelcomePage", "Master");
         }
+        public IActionResult EditUser()
+        {
+            string[] UsernamePassword = HttpContext.Request.Cookies["AspProjectCookie"].Split(',');
+            return View(_userService.GetUser(UsernamePassword[0], UsernamePassword[1]));
+        }
+        [HttpPost]
+        public IActionResult EditUser(User user)
+        {
+            _userService.UpdateUser(user);
+            string[] UsernamePassword = HttpContext.Request.Cookies["AspProjectCookie"].Split(',');
+            HttpContext.Response.Cookies.Append("AspProjectCookie", $"{UsernamePassword[0]},{user.Password}", new CookieOptions() { Expires = DateTime.Now.AddDays(3) });
+            return RedirectToAction("WelcomePage","Master");
+        }
     }
 }

@@ -42,7 +42,6 @@ namespace AspProject_Services.Services
         => Context.Products.Include(p => p.Seler).Include(p => p.Buyer).Where(p => p.State == ProductState.UnSold && !productsInAnnonymusCart.Contains(p.Id)).ToList();
 
         public IEnumerable<Product> GetCart(User user)
-
         => Context.Products.Include(p => p.Seler).Include(p => p.Buyer).Where(p => p.Buyer == user && p.State == ProductState.InCart).ToList();
 
         public IEnumerable<Product> GetCart(List<int> productIDs)

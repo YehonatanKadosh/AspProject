@@ -334,3 +334,4 @@ C:\Users\Jonathan\source\repos\AspProjectGit\AspProject\obj\Debug\netcoreapp3.1\
 C:\Users\Jonathan\source\repos\AspProjectGit\AspProject\obj\Debug\netcoreapp3.1\Razor\Views\Product\ProductDetails.cshtml.g.cs
 C:\Users\Jonathan\source\repos\AspProjectGit\AspProject\obj\Debug\netcoreapp3.1\Razor\Views\Product\Cart.cshtml.g.cs
 C:\Users\Jonathan\source\repos\AspProjectGit\AspProject\obj\Debug\netcoreapp3.1\Razor\Views\Product\Thanks.cshtml.g.cs
+C:\Users\Jonathan\source\repos\AspProjectGit\AspProject\obj\Debug\netcoreapp3.1\Razor\Views\User\EditUser.cshtml.g.cs

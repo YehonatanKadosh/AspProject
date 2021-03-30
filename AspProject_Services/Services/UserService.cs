@@ -44,5 +44,16 @@ namespace AspProject_Services.Services
                 return $"{_user.FirstName} {_user.LastName}";
             return null;
         }
+
+        public void UpdateUser(User user)
+        {
+            User datauser = Context.Users.Where(u => u.Id == user.Id).FirstOrDefault();
+            datauser.FirstName = user.FirstName;
+            datauser.LastName = user.LastName;
+            datauser.Password = user.Password;
+            datauser.Email = user.Email;
+            datauser.BirthDate = user.BirthDate;
+            Context.SaveChanges();
+        }
     }
 }
