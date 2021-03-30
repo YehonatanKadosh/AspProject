@@ -9,7 +9,14 @@ namespace AspProject_Services.Interfaces
     public interface IProductService
     {
         void AddProduct(Product product);
-        object GetAllAvailable();
-        Product getProductByID(int id);
+        IEnumerable<Product> GetAllAvailableProducts();
+        Product GetProductByID(int id);
+        void AddProductToCart(int id, User user);
+        IEnumerable<Product> GetCart(User user);
+        void RemoveFromCart(int id, User user);
+        IEnumerable<Product> GetCart(List<int> productIDs);
+        IEnumerable<Product> GetAllAvailableProducts(List<int> productsInAnnonymusCart);
+        Task Purchase(User user);
+        Task Purchase(List<int> productIDs);
     }
 }

@@ -11,16 +11,21 @@ namespace AspProject.Controllers
     {
         private IProductService ProductService;
 
-        private IUserService Userservice;
-           
-        public MasterController(IUserService userService, IProductService productService)
+        public MasterController(IProductService productService)
         {
-            Userservice = userService;
             ProductService = productService;
         }
         public IActionResult WelcomePage()
         {
-            return View(ProductService.GetAllAvailable());
+            if (HttpContext.Request.Cookies.ContainsKey("AspProjectGuestCart"))
+            {
+                List<int> ProductsInAnnonymusCart = new List<int>();
+                HttpContext.Request.Cookies["AspProjectGuestCart"].Split(',').ToList().ForEach(idstring => ProductsInAnnonymusCart.Add(int.Parse(idstring)));
+                return View(ProductService.GetAllAvailableProducts(ProductsInAnnonymusCart));
+
+            }
+
+            return View(ProductService.GetAllAvailableProducts());
         }
     }
 }

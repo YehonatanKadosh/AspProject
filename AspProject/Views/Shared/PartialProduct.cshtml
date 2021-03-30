@@ -1,10 +1,8 @@
 ﻿@model Product
 <div class="text-center">
     <div>
-        <h6>
-            @Model.Title
-        </h6>
-        @Model.Date.ToShortDateString()
+        <h5>@Model.Title (@Model.Price$)</h5>
+        <h6>@Model.Date.ToShortDateString()</h6>
     </div>
     <div class="d-flex">
         <div class="col">

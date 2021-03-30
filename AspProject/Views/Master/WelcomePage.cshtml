@@ -6,15 +6,14 @@
 <link rel="stylesheet" href="~/css/site.css" />
 @foreach (Product product in Model)
 {
-<div class="partialViewWrapper d-inline-block text-center rounded border">
-    <div class="align-top h-75 overflow-hidden">
-        @await Html.PartialAsync("PartialProduct", product)
+<a asp-controller="Product" asp-action="ProductDetails" asp-route-id="@product.Id">
+    <div class="partialViewWrapper d-inline-block text-center rounded border border-primary">
+        <div class="align-top h-85 overflow-hidden">
+            @await Html.PartialAsync("PartialProduct", product)
+        </div>
+        <a asp-controller="Product" asp-action="addToCart" asp-route-id="@product.Id" class=" h6 small align-bottom">
+            AddToCart
+        </a>
     </div>
-    <a asp-controller="Product" asp-action="addToCart" asp-route-id="@product.Id" class="align-bottom">
-        AddToCart
-    </a><br />
-    <a asp-controller="Product" asp-action="ProductDetails" asp-route-id="@product.Id" class="align-bottom">
-        More details
-    </a>
-</div>
+</a>
 }

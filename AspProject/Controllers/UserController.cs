@@ -3,15 +3,20 @@ using AspProject_Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace AspProject.Controllers
 {
     public class UserController : Controller
     {
         private IUserService _userService;
-        public UserController(IUserService userService)
+        private IProductService _productService;
+
+        public UserController(IUserService userService, IProductService productService)
         {
             _userService = userService;
+            _productService = productService;
         }
         public IActionResult SignUp()
         {
@@ -19,9 +24,16 @@ namespace AspProject.Controllers
         }
         public IActionResult SignIn(SignInModel signInModel)
         {
-            string user = _userService.Get_User_Details(signInModel.Username, signInModel.Password);
+            User user = _userService.GetUser(signInModel.Username, signInModel.Password);
             if (user != null)
-                HttpContext.Response.Cookies.Append("AspProjectCookie", $"{signInModel.Username},{signInModel.Password}", new CookieOptions() { Expires = (DateTime.Now).AddDays(3) });
+            {
+                HttpContext.Response.Cookies.Append("AspProjectCookie", $"{signInModel.Username},{signInModel.Password}", new CookieOptions() { Expires = DateTime.Now.AddDays(3) });
+                if (HttpContext.Request.Cookies.ContainsKey("AspProjectGuestCart"))
+                {
+                    HttpContext.Request.Cookies["AspProjectGuestCart"].Split(',').ToList().ForEach(idstring => _productService.AddProductToCart(int.Parse(idstring), user)); ;
+                    HttpContext.Response.Cookies.Delete("AspProjectGuestCart");
+                }
+            }
             return RedirectToAction("WelcomePage", "Master");
         }
         public IActionResult SignOut()
@@ -36,6 +48,13 @@ namespace AspProject.Controllers
                 return StatusCode(200);
             else return StatusCode(404);
         }
+        public IActionResult PasswordCheck(string username, string password)
+        {
+            if (_userService.CheckIfExists(username))
+                if (_userService.CheckIfPasswordMatch(username, password))
+                    return StatusCode(200);
+            return StatusCode(404);
+        }
         public IActionResult AddUser(User user)
         {
             if (!ModelState.IsValid)
@@ -44,6 +63,11 @@ namespace AspProject.Controllers
             {
                 _userService.AddUser(user);
                 HttpContext.Response.Cookies.Append("AspProjectCookie", $"{user.UserName},{user.Password}", new CookieOptions() { Expires = DateTime.Now.AddDays(3) });
+                if (HttpContext.Request.Cookies.ContainsKey("AspProjectGuestCart"))
+                {
+                    HttpContext.Request.Cookies["AspProjectGuestCart"].Split(',').ToList().ForEach(idstring => _productService.AddProductToCart(int.Parse(idstring), user)); ;
+                    HttpContext.Response.Cookies.Delete("AspProjectGuestCart");
+                }
             }
             return RedirectToAction("WelcomePage", "Master");
         }

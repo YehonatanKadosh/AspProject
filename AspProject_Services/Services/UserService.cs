@@ -29,6 +29,9 @@ namespace AspProject_Services.Services
         public bool CheckIfExists(string username)
         => Context.Users.Where(user => user.UserName == username).FirstOrDefault() != null;
 
+        public bool CheckIfPasswordMatch(string username, string password)
+        => Context.Users.Where(user => user.UserName == username && user.Password == password).FirstOrDefault() != null;
+
         public IEnumerable<User> GetAllUsers() => Context.Users;
 
         public User GetUser(string username, string password)

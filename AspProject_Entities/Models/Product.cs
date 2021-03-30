@@ -37,7 +37,7 @@ namespace AspProject_Entities.Models
         public byte[] Picture3 { get; set; }
         [Required(ErrorMessage = "Required field")]
         public ProductState State { get; set; }
-        public User Owner { get; set; }
-        public User User { get; set; }
+        public User Seler { get; set; }
+        public User Buyer { get; set; }
     }
 }
