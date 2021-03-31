@@ -3,17 +3,30 @@
 @section Header{
     <h1>WelcomePage</h1>
 }
-<link rel="stylesheet" href="~/css/site.css" />
-@foreach (Product product in Model)
-{
-<a asp-controller="Product" asp-action="ProductDetails" asp-route-id="@product.Id">
-    <div class="partialViewWrapper d-inline-block text-center rounded border border-primary">
-        <div class="align-top h-85 overflow-hidden">
-            @await Html.PartialAsync("PartialProduct", product)
-        </div>
-        <a asp-controller="Product" asp-action="addToCart" asp-route-id="@product.Id" class=" h6 small align-bottom">
-            AddToCart
-        </a>
-    </div>
-</a>
+@section StyleSheets{
+    <link rel="stylesheet" href="~/css/site.css" />
 }
+@section Scripts{
+    <script src="~/js/SortingAdds.js"></script>
+}
+<div class="text-center">
+    <button id="SortByTitle" class="btn btn-outline-primary">Sort by title</button>
+    <button id="SortByDate" class="btn btn-outline-primary">Sort by Date</button>
+</div>
+<ul id="AdvertsList" class="m-0 p-0 align-content-center">
+    @foreach (Product product in Model)
+    {
+        <li class="d-inline-block list-group-item p-0 border-0">
+            <a asp-controller="Product" asp-action="ProductDetails" asp-route-id="@product.Id">
+                <div class="partialViewWrapper d-inline-block text-center rounded border border-primary">
+                    <div class="align-top h-85 overflow-hidden">
+                        @await Html.PartialAsync("PartialProduct", product)
+                    </div>
+                    <a asp-controller="Product" asp-action="addToCart" asp-route-id="@product.Id" class=" h6 small align-bottom">
+                        AddToCart
+                    </a>
+                </div>
+            </a>
+        </li>
+    }
+</ul>
