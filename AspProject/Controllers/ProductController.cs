@@ -110,7 +110,7 @@ namespace AspProject.Controllers
                 }
             }
         }
-        public async Task<IActionResult> Purchase()
+        public async Task<IActionResult> Purchase()// Add sold item filtering-----------------------------------------
         {
             if (HttpContext.Request.Cookies.ContainsKey("AspProjectCookie"))
             {
@@ -122,7 +122,6 @@ namespace AspProject.Controllers
                 List<int> ProductIDs = new List<int>();
                 HttpContext.Request.Cookies["AspProjectGuestCart"].Split(',').ToList().ForEach(idstring => ProductIDs.Add(int.Parse(idstring))); ;
                 await _productService.Purchase(ProductIDs);
-
             }
             return RedirectToAction("Thanks", "Product");
         }

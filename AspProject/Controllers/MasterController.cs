@@ -19,9 +19,7 @@ namespace AspProject.Controllers
                 List<int> ProductsInAnnonymusCart = new List<int>();
                 HttpContext.Request.Cookies["AspProjectGuestCart"].Split(',').ToList().ForEach(idstring => ProductsInAnnonymusCart.Add(int.Parse(idstring)));
                 return View(ProductService.GetAllAvailableProducts(ProductsInAnnonymusCart));
-
             }
-
             return View(ProductService.GetAllAvailableProducts());
         }
         public IActionResult AboutUs() => View();

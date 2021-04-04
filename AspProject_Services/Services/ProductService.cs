@@ -27,10 +27,7 @@ namespace AspProject_Services.Services
         {
             Product product = Context.Products.Include(p => p.Seler).Include(p => p.Buyer).Where(p => p.Id == id).FirstOrDefault();
             product.LastModified = DateTime.Now;
-            if (user != null)
-                product.Buyer = user;
-            else
-                product.Buyer = null;
+            product.Buyer = user;
             product.State = ProductState.InCart;
             Context.SaveChanges();
         }
@@ -44,8 +41,8 @@ namespace AspProject_Services.Services
         public IEnumerable<Product> GetCart(User user)
         => Context.Products.Include(p => p.Seler).Include(p => p.Buyer).Where(p => p.Buyer == user && p.State == ProductState.InCart).ToList();
 
-        public IEnumerable<Product> GetCart(List<int> productIDs)
-        => Context.Products.Include(p => p.Seler).Include(p => p.Buyer).Where(p => p.State == ProductState.UnSold && productIDs.Contains(p.Id)).ToList();
+        public IEnumerable<Product> GetCart(List<int> productsInAnnonymusCart)
+        => Context.Products.Include(p => p.Seler).Include(p => p.Buyer).Where(p => p.State == ProductState.UnSold && productsInAnnonymusCart.Contains(p.Id)).ToList();
 
         public Product GetProductByID(int id)
         => Context.Products.Include(p => p.Seler).Include(p => p.Buyer).Where(p => p.Id == id).FirstOrDefault();
@@ -58,8 +55,7 @@ namespace AspProject_Services.Services
 
         public async Task Purchase(User user) => await Purchase(GetCart(user));
 
-        public async Task Purchase(List<int> productIDs) => await Purchase(GetCart(productIDs));
-
+        public async Task Purchase(List<int> productsInAnnonymusCart) => await Purchase(GetCart(productsInAnnonymusCart));
 
         public void RemoveFromCart(int id, User user)
         {

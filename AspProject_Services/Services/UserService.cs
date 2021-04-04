@@ -1,7 +1,7 @@
-﻿using AspProject_DataBase.Context;
+﻿
+using AspProject_DataBase.Context;
 using AspProject_Entities.Models;
 using AspProject_Services.Interfaces;
-using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -34,8 +34,18 @@ namespace AspProject_Services.Services
 
         public IEnumerable<User> GetAllUsers() => Context.Users;
 
+        public bool GetUser(string username, string password, out User user)
+        {
+            user = Context.Users.FirstOrDefault(user => user.UserName == username && user.Password == password);
+            return user != null;
+        }
+
         public User GetUser(string username, string password)
-        => Context.Users.FirstOrDefault(user => user.UserName == username && user.Password == password);
+        {
+            if (GetUser(username, password, out User user))
+                return user;
+            return null;
+        }
 
         public string Get_User_Details(string username, string password)
         {

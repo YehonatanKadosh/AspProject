@@ -24,8 +24,9 @@ namespace AspProject.Controllers
         }
         public IActionResult SignIn(SignInModel signInModel)
         {
-            User user = _userService.GetUser(signInModel.Username, signInModel.Password);
-            if (user != null)
+            if(!ModelState.IsValid)
+                return RedirectToAction("WelcomePage", "Master");
+            if (_userService.GetUser(signInModel.Username, signInModel.Password, out User user))
             {
                 HttpContext.Response.Cookies.Append("AspProjectCookie", $"{signInModel.Username},{signInModel.Password}", new CookieOptions() { Expires = DateTime.Now.AddDays(3) });
                 if (HttpContext.Request.Cookies.ContainsKey("AspProjectGuestCart"))
