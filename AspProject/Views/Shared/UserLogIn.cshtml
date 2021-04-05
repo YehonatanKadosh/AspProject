@@ -17,18 +17,23 @@
 }
 else
 {
-    <form class="form-signin text-center" asp-action="SignIn" asp-controller="User">
+    <form id="partialform" class="form-signin text-center" data-ajax-method="POST" asp-action="SignIn" asp-controller="User" data-ajax="true" data-ajax-update="#partialform" data-ajax-mode="replace">
         <h2 class="mb-3 fw-normal">Sign in</h2>
         <div>
             <div id="LogIn_Username_messenger"></div>
             <input asp-for="Username" id="SignIn_Username" class="form-control" placeholder="Username" required="">
             <span asp-validation-for="Username" class="h6 d-block rounded bg-danger"></span>
+
         </div>
         <div>
             <div id="LogIn_Password_messenger"></div>
             <input type="password" asp-for="Password" id="SignIn_Password" class="form-control" placeholder="Password" required="">
             <span asp-validation-for="Password" class="h6 d-block rounded bg-danger"></span>
         </div>
+        @if (ViewBag.LogInError != null)
+        {
+            <div class="text-danger">@ViewBag.LogInError</div>
+        }
         <button id="logIn_Button" disabled class="h3 w-25 btn btn-primary btn-sm">Sign in</button>
         <a asp-action="SignUp" asp-controller="User" class="h3 w-25 btn btn-primary btn-sm">Sign Up</a>
     </form>

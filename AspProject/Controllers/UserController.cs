@@ -22,10 +22,14 @@ namespace AspProject.Controllers
         {
             return View();
         }
+        [HttpPost]
         public IActionResult SignIn(SignInModel signInModel)
         {
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
+            {
+                TempData["LogInError"] = "Username or Pasword not filled approprietly";
                 return RedirectToAction("WelcomePage", "Master");
+            }
             if (_userService.GetUser(signInModel.Username, signInModel.Password, out User user))
             {
                 HttpContext.Response.Cookies.Append("AspProjectCookie", $"{signInModel.Username},{signInModel.Password}", new CookieOptions() { Expires = DateTime.Now.AddDays(3) });
@@ -34,6 +38,11 @@ namespace AspProject.Controllers
                     HttpContext.Request.Cookies["AspProjectGuestCart"].Split(',').ToList().ForEach(idstring => _productService.AddProductToCart(int.Parse(idstring), user)); ;
                     HttpContext.Response.Cookies.Delete("AspProjectGuestCart");
                 }
+            }
+            else
+            {
+                TempData["LogInError"] = "Incorrect Username or Password";
+                return RedirectToAction("WelcomePage", "Master");
             }
             return RedirectToAction("WelcomePage", "Master");
         }
@@ -60,7 +69,10 @@ namespace AspProject.Controllers
             if (!ModelState.IsValid)
                 return View("SignUp", user);
             else if (_userService.CheckIfExists(user.UserName))
-                return BadRequest("User already exists!");
+            {
+                ViewBag.UserAlreadyExistsError = "User already Exists";
+                return View("SignUp", user);
+            }
             else
             {
                 _userService.AddUser(user);
@@ -84,7 +96,7 @@ namespace AspProject.Controllers
             _userService.UpdateUser(user);
             string[] UsernamePassword = HttpContext.Request.Cookies["AspProjectCookie"].Split(',');
             HttpContext.Response.Cookies.Append("AspProjectCookie", $"{UsernamePassword[0]},{user.Password}", new CookieOptions() { Expires = DateTime.Now.AddDays(3) });
-            return RedirectToAction("WelcomePage","Master");
+            return RedirectToAction("WelcomePage", "Master");
         }
     }
 }

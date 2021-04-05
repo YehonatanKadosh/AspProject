@@ -11,7 +11,7 @@ namespace AspProject.Migrations
 {
     [DbContext(typeof(DBContext))]
     [Migration("20210405164730_precision")]
-    partial class precision
+    partial class Precision
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

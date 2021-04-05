@@ -15,6 +15,8 @@ namespace AspProject.Controllers
         public MasterController(IProductService productService) => _productService = productService;
         public IActionResult WelcomePage()
         {
+            if (TempData.ContainsKey("LogInError"))
+                ViewBag.LogInError = TempData["LogInError"];
             if (TempData.ContainsKey("SortingType"))
             {
                 List<Product> ProductList;

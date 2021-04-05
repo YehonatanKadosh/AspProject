@@ -2,7 +2,7 @@
 
 namespace AspProject.Migrations
 {
-    public partial class precision : Migration
+    public partial class Precision : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
