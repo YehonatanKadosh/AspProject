@@ -49,14 +49,16 @@ namespace AspProject_Services.Services
 
         private async Task Purchase(IEnumerable<Product> productsToPurchase, User user = null)
         {
-            if (user != null)
-                await Context.Products.Where(product => productsToPurchase.Contains(product)).ForEachAsync(product => product.State = ProductState.Sold) ;
-            else
-                await Context.Products.Where(product => productsToPurchase.Contains(product)).ForEachAsync(product => product.State = ProductState.Sold);
+            await Context.Products.Where(product => productsToPurchase.Contains(product)).ForEachAsync((product) =>
+            {
+                product.State = ProductState.Sold;
+                if (user != null) product.Buyer = user;
+                else product.Buyer = null;
+            });
             Context.SaveChanges();
         }
 
-        public async Task Purchase(User user) => await Purchase(GetCart(user));
+        public async Task Purchase(User user) => await Purchase(GetCart(user), user);
 
         public async Task Purchase(List<int> productsInAnnonymusCart) => await Purchase(GetCart(productsInAnnonymusCart));
 

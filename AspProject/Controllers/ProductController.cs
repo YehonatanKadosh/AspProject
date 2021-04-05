@@ -125,9 +125,11 @@ namespace AspProject.Controllers
             }
             return RedirectToAction("Thanks", "Product");
         }
-        public IActionResult Thanks()
+        public IActionResult Thanks() => View();
+        public IActionResult GetProductsSorted(string SortingType)
         {
-            return View();
+            TempData["SortingType"] = SortingType;
+            return RedirectToAction("WelcomePage", "Master");
         }
     }
 }

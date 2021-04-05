@@ -1,5 +1,5 @@
 ﻿$("#SignIn_Username").on("change", async () => {
-    await Promise.resolve($.post("/User/UsernameCheck", { Username: $("#SignIn_Username").val() }))
+    await Promise.resolve($.get("/User/UsernameCheck", { Username: $("#SignIn_Username").val() }))
         .then((Success) => {
             $("#LogIn_Username_messenger")
                 .removeClass("invalid-feedback")
@@ -21,7 +21,7 @@
 });
 
 $("#SignIn_Password").on("change", async () => {
-    await Promise.resolve($.post("/User/PasswordCheck", { Username: $("#SignIn_Username").val(), Password: $("#SignIn_Password").val() }))
+    await Promise.resolve($.get("/User/PasswordCheck", { Username: $("#SignIn_Username").val(), Password: $("#SignIn_Password").val() }))
         .then((Success) => {
             $("#LogIn_Password_messenger")
                 .removeClass("invalid-feedback")

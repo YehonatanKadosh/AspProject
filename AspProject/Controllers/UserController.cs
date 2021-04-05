@@ -42,7 +42,6 @@ namespace AspProject.Controllers
             HttpContext.Response.Cookies.Delete("AspProjectCookie");
             return RedirectToAction("WelcomePage", "Master");
         }
-        [HttpPost]
         public IActionResult UsernameCheck(string username)
         {
             if (_userService.CheckIfExists(username))

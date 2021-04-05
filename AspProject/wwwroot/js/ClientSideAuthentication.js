@@ -41,7 +41,7 @@ $("#Password").on("change", () => {
 });
 
 $("#Username").on("change", async () => {
-    await Promise.resolve($.post("/User/UsernameCheck", { Username: $("#Username").val() }))
+    await Promise.resolve($.get("/User/UsernameCheck", { Username: $("#Username").val() }))
         .then((Success) => {
             $("#Username_messenger")
                 .removeClass("valid-feedback")

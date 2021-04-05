@@ -6,12 +6,9 @@
 @section StyleSheets{
     <link rel="stylesheet" href="~/css/site.css" />
 }
-@section Scripts{
-    <script src="~/js/SortingAdds.js"></script>
-}
 <div class="text-center">
-    <button id="SortByTitle" class="btn btn-outline-primary">Sort by title</button>
-    <button id="SortByDate" class="btn btn-primary">Sort by Date</button>
+    <a asp-controller="Product" asp-action="GetProductsSorted" asp-route-SortingType="Title" class="btn btn-primary">Sort by title</a>
+    <a asp-controller="Product" asp-action="GetProductsSorted" asp-route-SortingType="Date" class="btn btn-primary">Sort by Date</a>
 </div>
 <ul id="AdvertsList" class="m-0 p-0 align-content-center">
     @foreach (Product product in Model)
