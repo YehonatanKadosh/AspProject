@@ -15,8 +15,8 @@ namespace AspProject.Controllers
 {
     public class ProductController : Controller
     {
-        private IProductService _productService;
-        private IUserService _userService;
+        private readonly IProductService _productService;
+        private readonly IUserService _userService;
 
         public ProductController(IProductService productService, IUserService userService)
         {

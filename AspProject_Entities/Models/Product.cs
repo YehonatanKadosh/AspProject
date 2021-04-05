@@ -27,7 +27,7 @@ namespace AspProject_Entities.Models
         public DateTime LastModified { get; set; }// For the nonUsers to know if i should change the state 15 minutes from being touched
 
         [Required(ErrorMessage = "Required field")]
-        [Column(TypeName = "decimal(18,0)")]
+        [Column(TypeName = "decimal(18,2)")]
         public double Price { get; set; }
         [Column(TypeName = "image")]
         public byte[] Picture1 { get; set; }

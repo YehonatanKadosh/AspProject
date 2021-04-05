@@ -10,8 +10,8 @@ namespace AspProject.Controllers
 {
     public class UserController : Controller
     {
-        private IUserService _userService;
-        private IProductService _productService;
+        private readonly IUserService _userService;
+        private readonly IProductService _productService;
 
         public UserController(IUserService userService, IProductService productService)
         {
@@ -60,6 +60,8 @@ namespace AspProject.Controllers
         {
             if (!ModelState.IsValid)
                 return View("SignUp", user);
+            else if (_userService.CheckIfExists(user.UserName))
+                return BadRequest("User already exists!");
             else
             {
                 _userService.AddUser(user);

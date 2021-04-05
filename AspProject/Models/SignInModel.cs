@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AspProject_Entities.Models
 {
+    
     public class SignInModel
     {
         [Required(ErrorMessage = "Required field")]

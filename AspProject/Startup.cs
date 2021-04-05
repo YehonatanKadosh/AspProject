@@ -16,6 +16,7 @@ namespace AspProject
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            //Add Interval for updating DB
         }
         public IConfiguration Configuration { get; }
 

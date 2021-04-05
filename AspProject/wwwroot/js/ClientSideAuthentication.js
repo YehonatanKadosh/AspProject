@@ -1,17 +1,11 @@
-﻿
-$("#Submit_New_User_Button").on("click", () => {
-    if (($("#Password_messenger").text() === "Passwords does'nt match!" || $("#Username_messenger").text() === "Username already exists!")) {
-        return false;
-    }
-});
-
-$("#Password_Verification").on("change", () => {
+﻿$("#Password_Verification").on("change", () => {
     if (!($("#Password").val() === $("#Password_Verification").val())) {
         $("#Password_messenger")
             .removeClass("valid-feedback")
             .addClass("invalid-feedback")
             .text("Passwords does'nt match!")
             .fadeIn();
+        $("#Submit_New_User_Button").prop("disabled", true);
     }
     else {
         $("#Password_messenger")
@@ -19,6 +13,9 @@ $("#Password_Verification").on("change", () => {
             .addClass("valid-feedback")
             .text("Passwords match!")
             .fadeIn();
+        if ($("#Username_messenger").text() === "Valid username!") {
+            $("#Submit_New_User_Button").prop("disabled", false);
+        }
     }
 });
 
@@ -29,6 +26,7 @@ $("#Password").on("change", () => {
             .addClass("invalid-feedback")
             .text("Passwords does'nt match!")
             .fadeIn();
+        $("#Submit_New_User_Button").prop("disabled", true);
     }
     else {
         $("#Password_messenger")
@@ -36,6 +34,9 @@ $("#Password").on("change", () => {
             .addClass("valid-feedback")
             .text("Passwords match!")
             .fadeIn();
+        if ($("#Username_messenger").text() === "Valid username!") {
+            $("#Submit_New_User_Button").prop("disabled", false);
+        }
     }
 });
 
@@ -47,6 +48,7 @@ $("#Username").on("change", async () => {
                 .addClass("invalid-feedback")
                 .text("Username exists!")
                 .fadeIn();
+            $("#Submit_New_User_Button").prop("disabled", true);
         })
         .catch((Error) => {
             $("#Username_messenger")
@@ -54,5 +56,8 @@ $("#Username").on("change", async () => {
                 .addClass("valid-feedback")
                 .text("Valid username!")
                 .fadeIn();
+            if ($("#Password_messenger").text() === "Passwords match!") {
+                $("#Submit_New_User_Button").prop("disabled", false);
+            }
         });
 });

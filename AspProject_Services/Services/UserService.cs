@@ -10,7 +10,7 @@ namespace AspProject_Services.Services
 {
     public class UserService : IUserService
     {
-        private DBContext Context;
+        private readonly DBContext Context;
 
         public UserService(DBContext context)
         {
@@ -31,8 +31,6 @@ namespace AspProject_Services.Services
 
         public bool CheckIfPasswordMatch(string username, string password)
         => Context.Users.Where(user => user.UserName == username && user.Password == password).FirstOrDefault() != null;
-
-        public IEnumerable<User> GetAllUsers() => Context.Users;
 
         public bool GetUser(string username, string password, out User user)
         {

@@ -9,6 +9,5 @@ namespace AspProject_Entities.ModelsValidation
     {
         public override bool IsValid(object value)
         => (value is DateTime) && (value as DateTime?).Value.Year > 1900 && (value as DateTime?) < DateTime.Now;
-
     }
 }

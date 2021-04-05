@@ -12,7 +12,7 @@ namespace AspProject_Services.Services
 {
     public class ProductService : IProductService
     {
-        private DBContext Context;
+        private readonly DBContext Context;
         public ProductService(DBContext dBContext)
         {
             Context = dBContext;
@@ -47,9 +47,12 @@ namespace AspProject_Services.Services
         public Product GetProductByID(int id)
         => Context.Products.Include(p => p.Seler).Include(p => p.Buyer).Where(p => p.Id == id).FirstOrDefault();
 
-        private async Task Purchase(IEnumerable<Product> productsToPurchase)
+        private async Task Purchase(IEnumerable<Product> productsToPurchase, User user = null)
         {
-            await Context.Products.Where(product => productsToPurchase.Contains(product)).ForEachAsync(product => product.State = ProductState.Sold);
+            if (user != null)
+                await Context.Products.Where(product => productsToPurchase.Contains(product)).ForEachAsync(product => product.State = ProductState.Sold) ;
+            else
+                await Context.Products.Where(product => productsToPurchase.Contains(product)).ForEachAsync(product => product.State = ProductState.Sold);
             Context.SaveChanges();
         }
 

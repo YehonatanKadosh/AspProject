@@ -9,7 +9,7 @@ namespace AspProject.Controllers
 {
     public class MasterController : Controller
     {
-        private IProductService ProductService;
+        private readonly IProductService ProductService;
 
         public MasterController(IProductService productService) => ProductService = productService;
         public IActionResult WelcomePage()

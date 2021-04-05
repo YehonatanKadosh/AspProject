@@ -29,7 +29,7 @@ else
             <input type="password" asp-for="Password" id="SignIn_Password" class="form-control" placeholder="Password" required="">
             <span asp-validation-for="Password" class="h6 d-block rounded bg-danger"></span>
         </div>
-        <button id="logIn_Button" class="h3 w-25 btn btn-primary btn-sm">Sign in</button>
+        <button id="logIn_Button" disabled class="h3 w-25 btn btn-primary btn-sm">Sign in</button>
         <a asp-action="SignUp" asp-controller="User" class="h3 w-25 btn btn-primary btn-sm">Sign Up</a>
     </form>
 }
