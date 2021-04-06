@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
+using System.Threading;
 
 namespace AspProject
 {
@@ -16,8 +18,8 @@ namespace AspProject
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            //Add Interval for updating DB
         }
+
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -46,7 +48,7 @@ namespace AspProject
             }
 
             app.UseStaticFiles();
-            
+
             app.UseRouting();
 
             app.UseAuthorization();
