@@ -2,6 +2,7 @@ using AspProject.Middlewares;
 using AspProject_DataBase.Context;
 using AspProject_Services.Interfaces;
 using AspProject_Services.Services;
+using AspProject_Services.Timers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -26,13 +27,10 @@ namespace AspProject
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-
             services.AddDbContext<DBContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("default"), b => b.MigrationsAssembly("AspProject")));
-
+                options.UseSqlServer(Configuration.GetConnectionString("default"), b => b.MigrationsAssembly("AspProject")));
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<IUserService, UserService>();
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

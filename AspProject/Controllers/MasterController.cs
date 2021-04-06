@@ -1,5 +1,6 @@
 ﻿using AspProject_Entities.Models;
 using AspProject_Services.Interfaces;
+using AspProject_Services.Timers;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,6 @@ namespace AspProject.Controllers
     public class MasterController : Controller
     {
         private readonly IProductService _productService;
-
         public MasterController(IProductService productService) => _productService = productService;
         public IActionResult WelcomePage()
         {
